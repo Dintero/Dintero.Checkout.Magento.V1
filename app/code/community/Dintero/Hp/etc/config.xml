@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Dintero_Hp>
+            <version>1.0.0</version>
+        </Dintero_Hp>
+    </modules>
+    <global>
+        <blocks>
+            <dintero>
+                <class>Dintero_Hp_Block</class>
+            </dintero>
+        </blocks>
+        <models>
+            <dintero>
+                <class>Dintero_Hp_Model</class>
+           </dintero>
+        </models>
+        <helpers>
+            <dintero>
+                <class>Dintero_Hp_Helper</class>
+            </dintero>
+        </helpers>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <dintero>
+                    <file>dintero.xml</file>
+                </dintero>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+         <routers>
+            <dintero>
+                <use>standard</use>
+                <args>
+                    <module>Dintero_Hp</module>
+                    <frontName>dintero</frontName>
+                </args>
+            </dintero>
+        </routers>
+        <layout>
+            <updates>
+                <authorizenet>
+                    <file>dintero.xml</file>
+                </authorizenet>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Dintero_Hp before="Mage_Adminhtml">Dintero_Hp_Adminhtml</Dintero_Hp>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <default>
+        <payment>
+            <dintero>
+                <active>0</active>
+                <account_id/>
+                <model>dintero/dintero</model>
+                <order_status>processing</order_status>
+                <payment_action>authorize</payment_action>
+                <environment>1</environment>
+                <title>Dintero Hp</title>
+                <client_id backend_model="adminhtml/system_config_backend_encrypted"/>
+                <client_secret backend_model="adminhtml/system_config_backend_encrypted"/>
+                <checkout_profile_id backend_model="adminhtml/system_config_backend_encrypted"/>
+                <allowspecific>0</allowspecific>
+                <currency>NOK</currency>
+            </dintero>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Dintero_Hp>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Paygate/>
+                <Mage_Sales/>
+                <Mage_Checkout/>
+            </depends>
+        </Dintero_Hp>
+    </modules>
+</config>
