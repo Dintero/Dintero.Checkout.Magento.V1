@@ -5,38 +5,18 @@
  */
 class Dintero_Hp_Block_Form extends Mage_Payment_Block_Form
 {
-
     /**
-     * Set method info
+     * Dintero_Hp_Block_Form constructor.
      *
-     * @return Mage_Authorizenet_Block_Directpost_Form
+     * @param array $args
      */
-    public function setMethodInfo()
+    public function __construct(array $args = array())
     {
-        $payment = Mage::getSingleton('checkout/type_onepage')
-            ->getQuote()
-            ->getPayment();
-        $this->setMethod($payment->getMethodInstance());
+        parent::__construct($args);
 
-        return $this;
-    }
-
-    protected function _toHtml()
-    {
-        if ($this->getMethod()->getCode() != Mage::getSingleton('dintero/dintero')->getCode()) {
-            return null;
-        }
-
-        return parent::_toHtml();
-    }
-
-    /**
-     * Retrieving place order url
-     *
-     * @return mixed
-     */
-    public function getPlaceOrderUrl()
-    {
-        return $this->helper('dintero')->getPlaceOrderUrl();
+        $paymentMethodsImage = Mage::app()->getLayout()->createBlock('core/template');
+        $paymentMethodsImage->setTemplate('dintero/hp/checkout-logo.phtml');
+        $this->setMethodTitle('');
+        $this->setMethodLabelAfterHtml($paymentMethodsImage->toHtml());
     }
 }

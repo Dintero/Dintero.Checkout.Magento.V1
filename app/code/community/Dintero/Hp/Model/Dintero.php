@@ -6,6 +6,13 @@
 class Dintero_Hp_Model_Dintero extends Mage_Payment_Model_Method_Abstract
 {
     /**
+     * Dintero form block
+     *
+     * @var string
+     */
+    protected $_formBlockType = 'dintero/form';
+
+    /**
      * API client
      *
      * @var Dintero_Hp_Model_Api_Client $_api

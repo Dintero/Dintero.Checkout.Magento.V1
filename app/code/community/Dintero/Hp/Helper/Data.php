@@ -40,6 +40,31 @@ class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
      */
     const XPATH_PAYMENT_ACTION = 'payment/dintero/payment_action';
 
+    /*
+     * Logo type
+     */
+    const XPATH_LOGO_TYPE = 'payment/dintero/logo_type';
+
+    /*
+     * Logo width
+     */
+    const XPATH_LOGO_WIDTH = 'payment/dintero/logo_width';
+
+    /*
+     * Logo color
+     */
+    const XPATH_LOGO_COLOR = 'payment/dintero/logo_color';
+
+    /*
+     * Default logo width
+     */
+    const DEFAULT_LOGO_WIDTH = 420;
+
+    /*
+     * Default logo color
+     */
+    const DEFAULT_LOGO_COLOR = '#c4c4c4';
+
     /**
      * Checking whether module is active or not
      *
@@ -159,5 +184,83 @@ class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
     public function getControllerName()
     {
         return Mage::app()->getFrontController()->getRequest()->getControllerName();
+    }
+
+    /**
+     * Retrieving logo type
+     *
+     * @return string
+     */
+    public function getLogoType()
+    {
+        return Mage::getStoreConfigFlag(self::XPATH_LOGO_TYPE) ? 'mono' : 'colors';
+    }
+
+    /**
+     * Retrieving logo color
+     *
+     * @return string
+     */
+    public function getLogoColor()
+    {
+        $value = Mage::getStoreConfig(self::XPATH_LOGO_COLOR);
+        return $value ?: self::DEFAULT_LOGO_COLOR;
+    }
+
+    /**
+     * Retrieving logo width
+     *
+     * @return int
+     */
+    public function getLogoWidth()
+    {
+        $value = Mage::getStoreConfig(self::XPATH_LOGO_WIDTH);
+        return $value ?: self::DEFAULT_LOGO_WIDTH;
+    }
+
+    /**
+     * Retrieving footer logo url
+     *
+     * @return string
+     */
+    public function getFooterLogoUrl()
+    {
+        $baseUrl = Dintero_Hp_Model_Api_Client::CHECKOUT_API_BASE_URL;
+        $pattern = '%s/branding/logos/visa_mastercard_vipps_swish_instabank/'
+            . 'variant/%s/colors/color/%s/width/%d/dintero_left_frame.svg';
+
+        if (Mage::getStoreConfigFlag(self::XPATH_LOGO_TYPE)) {
+            $pattern = '%s/branding/logos/visa_mastercard_vipps_swish_instabank/'
+                . 'variant/%s/color/%s/width/%d/dintero_left_frame.svg';
+        }
+
+        return sprintf(
+            $pattern,
+            $baseUrl,
+            $this->getLogoType(),
+            str_replace('#', '', $this->getLogoColor()),
+            $this->getLogoWidth()
+        );
+    }
+
+    /**
+     * Retrieving checkout logo url
+     *
+     * @return string
+     */
+    public function getCheckoutLogoUrl()
+    {
+        $baseUrl = Dintero_Hp_Model_Api_Client::CHECKOUT_API_BASE_URL;
+        $pattern = '%s/branding/profiles/%s/'
+            . 'variant/%s/color/%s/width/%d/dintero_left_frame.svg';
+
+        return sprintf(
+            $pattern,
+            $baseUrl,
+            $this->getProfileId(),
+            $this->getLogoType(),
+            str_replace('#', '', $this->getLogoColor()),
+            $this->getLogoWidth()
+        );
     }
 }

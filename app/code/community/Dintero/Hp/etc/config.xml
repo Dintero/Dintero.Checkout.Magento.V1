@@ -80,6 +80,9 @@
                 <checkout_profile_id backend_model="adminhtml/system_config_backend_encrypted"/>
                 <allowspecific>0</allowspecific>
                 <currency>NOK</currency>
+                <logo_type>1</logo_type>
+                <logo_width>600</logo_width>
+                <logo_color>#c4c4c4</logo_color>
             </dintero>
         </payment>
     </default>
