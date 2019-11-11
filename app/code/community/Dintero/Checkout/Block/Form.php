@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Class Dintero_Hp_Block_Form
+ * Class Dintero_Checkout_Block_Form
  */
-class Dintero_Hp_Block_Form extends Mage_Payment_Block_Form
+class Dintero_Checkout_Block_Form extends Mage_Payment_Block_Form
 {
     /**
-     * Dintero_Hp_Block_Form constructor.
+     * Dintero_Checkout_Block_Form constructor.
      *
      * @param array $args
      */
@@ -15,7 +15,7 @@ class Dintero_Hp_Block_Form extends Mage_Payment_Block_Form
         parent::__construct($args);
 
         $paymentMethodsImage = Mage::app()->getLayout()->createBlock('core/template');
-        $paymentMethodsImage->setTemplate('dintero/hp/checkout-logo.phtml');
+        $paymentMethodsImage->setTemplate('dintero/checkout/checkout-logo.phtml');
         $this->setMethodTitle('');
         $this->setMethodLabelAfterHtml($paymentMethodsImage->toHtml());
     }

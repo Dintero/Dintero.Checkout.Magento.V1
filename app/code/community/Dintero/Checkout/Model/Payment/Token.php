@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Model_Payment_Token
+ * Class Dintero_Checkout_Model_Payment_Token
  */
-class Dintero_Hp_Model_Payment_Token
+class Dintero_Checkout_Model_Payment_Token
 {
     /**
      * Access token

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Model_Source_Config_ColorPicker
+ * Class Dintero_Checkout_Model_Source_Config_ColorPicker
  */
-class Dintero_Hp_Block_Source_Config_ColorPicker
+class Dintero_Checkout_Block_Source_Config_ColorPicker
     extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
     /**

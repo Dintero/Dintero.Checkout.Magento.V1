@@ -2,24 +2,24 @@
 
 <config>
     <modules>
-        <Dintero_Hp>
+        <Dintero_Checkout>
             <version>1.0.0</version>
-        </Dintero_Hp>
+        </Dintero_Checkout>
     </modules>
     <global>
         <blocks>
             <dintero>
-                <class>Dintero_Hp_Block</class>
+                <class>Dintero_Checkout_Block</class>
             </dintero>
         </blocks>
         <models>
             <dintero>
-                <class>Dintero_Hp_Model</class>
+                <class>Dintero_Checkout_Model</class>
            </dintero>
         </models>
         <helpers>
             <dintero>
-                <class>Dintero_Hp_Helper</class>
+                <class>Dintero_Checkout_Helper</class>
             </dintero>
         </helpers>
     </global>
@@ -39,7 +39,7 @@
             <dintero>
                 <use>standard</use>
                 <args>
-                    <module>Dintero_Hp</module>
+                    <module>Dintero_Checkout</module>
                     <frontName>dintero</frontName>
                 </args>
             </dintero>
@@ -58,7 +58,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Dintero_Hp before="Mage_Adminhtml">Dintero_Hp_Adminhtml</Dintero_Hp>
+                        <Dintero_Checkout before="Mage_Adminhtml">Dintero_Checkout_Adminhtml</Dintero_Checkout>
                     </modules>
                 </args>
             </adminhtml>
@@ -74,7 +74,7 @@
                 <order_status>processing</order_status>
                 <payment_action>authorize</payment_action>
                 <environment>1</environment>
-                <title>Dintero Hp</title>
+                <title>Dintero Checkout</title>
                 <client_id backend_model="adminhtml/system_config_backend_encrypted"/>
                 <client_secret backend_model="adminhtml/system_config_backend_encrypted"/>
                 <checkout_profile_id backend_model="adminhtml/system_config_backend_encrypted"/>

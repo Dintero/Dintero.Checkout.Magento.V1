@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_PaymentController
+ * Class Dintero_Checkout_PaymentController
  */
-class Dintero_Hp_PaymentController extends Mage_Core_Controller_Front_Action
+class Dintero_Checkout_PaymentController extends Mage_Core_Controller_Front_Action
 {
     /**
      * Retrieving checkout session
@@ -28,7 +28,7 @@ class Dintero_Hp_PaymentController extends Mage_Core_Controller_Front_Action
     /**
      * Retrieving api client
      *
-     * @return Dintero_Hp_Model_Api_Client
+     * @return Dintero_Checkout_Model_Api_Client
      */
     protected function _getApi()
     {
@@ -45,7 +45,7 @@ class Dintero_Hp_PaymentController extends Mage_Core_Controller_Front_Action
         $merchantOrderId = $this->getRequest()->getParam('merchant_reference');
         $transactionId = $this->getRequest()->getParam('transaction_id');
 
-        /** @var Dintero_Hp_Model_Dintero $paymentMethod */
+        /** @var Dintero_Checkout_Model_Dintero $paymentMethod */
         $paymentMethod = Mage::getModel('dintero/dintero');
         $paymentMethod->process($merchantOrderId, $transactionId);
     }

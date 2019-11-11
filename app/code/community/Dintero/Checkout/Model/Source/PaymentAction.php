@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Model_Source_PaymentAction
+ * Class Dintero_Checkout_Model_Source_PaymentAction
  */
-class Dintero_Hp_Model_Source_PaymentAction
+class Dintero_Checkout_Model_Source_PaymentAction
 {
     /**
      * Payment actions
@@ -14,11 +14,11 @@ class Dintero_Hp_Model_Source_PaymentAction
     {
         return array(
             array(
-                'value' => Dintero_Hp_Model_Dintero::ACTION_AUTHORIZE,
+                'value' => Dintero_Checkout_Model_Dintero::ACTION_AUTHORIZE,
                 'label' => Mage::helper('paygate')->__('Authorize Only')
             ),
             array(
-                'value' => Dintero_Hp_Model_Dintero::ACTION_AUTHORIZE_CAPTURE,
+                'value' => Dintero_Checkout_Model_Dintero::ACTION_AUTHORIZE_CAPTURE,
                 'label' => Mage::helper('paygate')->__('Authorize and Capture')
             ),
         );

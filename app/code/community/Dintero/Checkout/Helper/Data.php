@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Helper_Config
+ * Class Dintero_Checkout_Helper_Config
  */
-class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
+class Dintero_Checkout_Helper_Data extends Mage_Core_Helper_Data
 {
     /*
      * XPATH Check if the payment method is active
@@ -173,7 +173,7 @@ class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
     public function canAutoCapture()
     {
         return Mage::getStoreConfig(self::XPATH_PAYMENT_ACTION)
-            == Dintero_Hp_Model_Dintero::ACTION_AUTHORIZE_CAPTURE;
+            == Dintero_Checkout_Model_Dintero::ACTION_AUTHORIZE_CAPTURE;
     }
 
     /**
@@ -225,7 +225,7 @@ class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
      */
     public function getFooterLogoUrl()
     {
-        $baseUrl = Dintero_Hp_Model_Api_Client::CHECKOUT_API_BASE_URL;
+        $baseUrl = Dintero_Checkout_Model_Api_Client::CHECKOUT_API_BASE_URL;
         $pattern = '%s/branding/logos/visa_mastercard_vipps_swish_instabank/'
             . 'variant/%s/colors/color/%s/width/%d/dintero_left_frame.svg';
 
@@ -250,7 +250,7 @@ class Dintero_Hp_Helper_Data extends Mage_Core_Helper_Data
      */
     public function getCheckoutLogoUrl()
     {
-        $baseUrl = Dintero_Hp_Model_Api_Client::CHECKOUT_API_BASE_URL;
+        $baseUrl = Dintero_Checkout_Model_Api_Client::CHECKOUT_API_BASE_URL;
         $pattern = '%s/branding/profiles/%s/'
             . 'variant/%s/color/%s/width/%d/dintero_left_frame.svg';
 

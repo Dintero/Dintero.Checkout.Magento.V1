@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Model_Dintero
+ * Class Dintero_Checkout_Model_Dintero
  */
-class Dintero_Hp_Model_Dintero extends Mage_Payment_Model_Method_Abstract
+class Dintero_Checkout_Model_Dintero extends Mage_Payment_Model_Method_Abstract
 {
     /**
      * Dintero form block
@@ -15,7 +15,7 @@ class Dintero_Hp_Model_Dintero extends Mage_Payment_Model_Method_Abstract
     /**
      * API client
      *
-     * @var Dintero_Hp_Model_Api_Client $_api
+     * @var Dintero_Checkout_Model_Api_Client $_api
      */
     private $_api;
 
@@ -43,7 +43,7 @@ class Dintero_Hp_Model_Dintero extends Mage_Payment_Model_Method_Abstract
     protected $_canFetchTransactionInfo = false;
 
     /**
-     * Dintero_Hp_Model_Dintero constructor.
+     * Dintero_Checkout_Model_Dintero constructor.
      */
     public function __construct()
     {
@@ -294,7 +294,7 @@ class Dintero_Hp_Model_Dintero extends Mage_Payment_Model_Method_Abstract
     /**
      * Return response.
      *
-     * @return Dintero_Hp_Model_Payment_Response
+     * @return Dintero_Checkout_Model_Payment_Response
      */
     public function getResponse()
     {

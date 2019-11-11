@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Dintero_Hp_Model_Api_Client responsible for communication with the Payment Gateway
+ * Class Dintero_Checkout_Model_Api_Client responsible for communication with the Payment Gateway
  */
-class Dintero_Hp_Model_Api_Client
+class Dintero_Checkout_Model_Api_Client
 {
     /*
      * Dintero api endpoint
@@ -55,7 +55,7 @@ class Dintero_Hp_Model_Api_Client
     /**
      * Retrieving helper
      *
-     * @return Dintero_Hp_Helper_Data
+     * @return Dintero_Checkout_Helper_Data
      */
     private function _helper()
     {
@@ -78,7 +78,7 @@ class Dintero_Hp_Model_Api_Client
             'Accept' => 'application/json',
         ];
 
-        if ($token && $token instanceof Dintero_Hp_Model_Payment_Token) {
+        if ($token && $token instanceof Dintero_Checkout_Model_Payment_Token) {
             $defaultHeaders['Authorization'] = $token->getTokenType() . ' ' . $token->getToken();
         }
 
