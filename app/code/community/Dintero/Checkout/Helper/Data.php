@@ -122,7 +122,7 @@ class Dintero_Checkout_Helper_Data extends Mage_Core_Helper_Data
      */
     public function getEnvironment()
     {
-        return Mage::getStoreConfigFlag(self::XPATH_ENVIRONMENT) ? 'T' : 'P';
+        return Mage::getStoreConfigFlag(self::XPATH_ENVIRONMENT) ? 'P' : 'T';
     }
 
     /**
