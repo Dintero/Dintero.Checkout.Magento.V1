@@ -155,6 +155,7 @@ class Dintero_Checkout_Model_Api_Client
 
             return $response;
         } catch (\Exception $e) {
+            Mage::log(var_export($response, true), null, 'dintero.log');
             Mage::logException($e);
         }
 
@@ -237,13 +238,19 @@ class Dintero_Checkout_Model_Api_Client
 
         // adding shipping as a separate item
         if ($salesDocument->getBaseShippingAmount() > 0) {
-            array_push($items, [
+            $shippingDetails = [
                 'id' => 'shipping',
                 'description' => 'Shipping',
                 // 'quantity' => 1,
-                'amount' => $salesDocument->getBaseShippingAmount() * 100,
+                'amount' => $salesDocument->getBaseShippingInclTax() * 100,
                 'line_id' => 'shipping',
-            ]);
+            ];
+
+            if ($salesDocument->getBaseShippingTaxAmount() > 0) {
+                $shippingDetails['vat_amount'] = $salesDocument->getBaseShippingTaxAmount() * 100;
+            }
+
+            array_push($items, $shippingDetails);
         }
 
         return $items;
@@ -274,13 +281,19 @@ class Dintero_Checkout_Model_Api_Client
 
         // adding shipping as a separate item
         if (!$order->getIsVirtual() && $order->getBaseShippingAmount() > 0) {
-            array_push($items, [
+            $shippingDetails = [
                 'id' => 'shipping',
                 'description' => 'Shipping',
                 'quantity' => 1,
-                'amount' => $order->getBaseShippingAmount() * 100,
+                'amount' => $order->getBaseShippingInclTax() * 100,
                 'line_id' => 'shipping',
-            ]);
+            ];
+
+            if ($order->getBaseShippingTaxAmount() > 0) {
+                $shippingDetails['vat_amount'] = $order->getBaseShippingTaxAmount() * 100;
+            }
+
+            array_push($items, $shippingDetails);
         }
 
         return $items;
